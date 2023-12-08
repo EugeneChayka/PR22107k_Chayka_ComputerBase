@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CompBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Clientele">
+    <Key>
+      <PropertyRef Name="IdClient" />
+    </Key>
+    <Property Name="IdClient" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Clientele" FromRole="Clientele" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Deliveries">
+    <Key>
+      <PropertyRef Name="IdDelivery" />
+    </Key>
+    <Property Name="IdDelivery" Type="Int32" Nullable="false" />
+    <Property Name="IdSuppliers" Type="Int32" Nullable="false" />
+    <Property Name="IdProduct" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Deliveries_Products1" FromRole="Deliveries" ToRole="Products" />
+    <NavigationProperty Name="Suppliers" Relationship="Self.FK_Deliveries_Suppliers" FromRole="Deliveries" ToRole="Suppliers" />
+  </EntityType>
+  <EntityType Name="Employeey">
+    <Key>
+      <PropertyRef Name="IdEmp" />
+    </Key>
+    <Property Name="IdEmp" Type="Int32" Nullable="false" />
+    <Property Name="IdPost" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Patronymic" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Post" Relationship="Self.FK_Employeey_Post" FromRole="Employeey" ToRole="Post" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Employeey" FromRole="Employeey" ToRole="Orders" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Users_Employeey2" FromRole="Employeey" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="IdOrder" />
+    </Key>
+    <Property Name="IdOrder" Type="Int32" Nullable="false" />
+    <Property Name="IdClient" Type="Int32" Nullable="false" />
+    <Property Name="IdEmp" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Clientele" Relationship="Self.FK_Orders_Clientele" FromRole="Orders" ToRole="Clientele" />
+    <NavigationProperty Name="Employeey" Relationship="Self.FK_Orders_Employeey" FromRole="Orders" ToRole="Employeey" />
+    <NavigationProperty Name="Products" Relationship="Self.ListOrders" FromRole="Orders" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="IdPost" />
+    </Key>
+    <Property Name="IdPost" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Salary" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Employeey" Relationship="Self.FK_Employeey_Post" FromRole="Post" ToRole="Employeey" />
+  </EntityType>
+  <EntityType Name="Product_Categories">
+    <Key>
+      <PropertyRef Name="IdCategories" />
+    </Key>
+    <Property Name="IdCategories" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Products_Product_Categories" FromRole="Product_Categories" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="IdProduct" />
+    </Key>
+    <Property Name="IdProduct" Type="Int32" Nullable="false" />
+    <Property Name="IdCategories" Type="Int32" />
+    <Property Name="IdTypeTovara" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Deliveries" Relationship="Self.FK_Deliveries_Products1" FromRole="Products" ToRole="Deliveries" />
+    <NavigationProperty Name="Product_Categories" Relationship="Self.FK_Products_Product_Categories" FromRole="Products" ToRole="Product_Categories" />
+    <NavigationProperty Name="TypeTovara" Relationship="Self.FK_Products_TypeTovara" FromRole="Products" ToRole="TypeTovara" />
+    <NavigationProperty Name="Sborka" Relationship="Self.FK_Sborka_Products" FromRole="Products" ToRole="Sborka" />
+    <NavigationProperty Name="Sborka1" Relationship="Self.FK_Sborka_Products1" FromRole="Products" ToRole="Sborka" />
+    <NavigationProperty Name="Warehouses" Relationship="Self.FK_Warehouses_Products" FromRole="Products" ToRole="Warehouses" />
+    <NavigationProperty Name="Orders" Relationship="Self.ListOrders" FromRole="Products" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Sborka">
+    <Key>
+      <PropertyRef Name="IdComputer" />
+      <PropertyRef Name="IdProduct" />
+    </Key>
+    <Property Name="IdComputer" Type="Int32" Nullable="false" />
+    <Property Name="IdProduct" Type="Int32" Nullable="false" />
+    <Property Name="Quant" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Sborka_Products" FromRole="Sborka" ToRole="Products" />
+    <NavigationProperty Name="Products1" Relationship="Self.FK_Sborka_Products1" FromRole="Sborka" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Suppliers">
+    <Key>
+      <PropertyRef Name="IdSupplier" />
+    </Key>
+    <Property Name="IdSupplier" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneNumber" Type="Int32" Nullable="false" />
+    <Property Name="Discription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Deliveries" Relationship="Self.FK_Deliveries_Suppliers" FromRole="Suppliers" ToRole="Deliveries" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TypeTovara">
+    <Key>
+      <PropertyRef Name="IdTypeTovara" />
+    </Key>
+    <Property Name="IdTypeTovara" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Products_TypeTovara" FromRole="TypeTovara" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="IdEmp" />
+    </Key>
+    <Property Name="IdEmp" Type="Int32" Nullable="false" />
+    <Property Name="Login" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Employeey" Relationship="Self.FK_Users_Employeey2" FromRole="Users" ToRole="Employeey" />
+  </EntityType>
+  <EntityType Name="Warehouses">
+    <Key>
+      <PropertyRef Name="IdProduct" />
+    </Key>
+    <Property Name="IdProduct" Type="Int32" Nullable="false" />
+    <Property Name="Quant" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Warehouses_Products" FromRole="Warehouses" ToRole="Products" />
+  </EntityType>
+  <Association Name="FK_Orders_Clientele">
+    <End Role="Clientele" Type="Self.Clientele" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientele">
+        <PropertyRef Name="IdClient" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="IdClient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Deliveries_Products1">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Deliveries" Type="Self.Deliveries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="IdProduct" />
+      </Principal>
+      <Dependent Role="Deliveries">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Deliveries_Suppliers">
+    <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="1" />
+    <End Role="Deliveries" Type="Self.Deliveries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suppliers">
+        <PropertyRef Name="IdSupplier" />
+      </Principal>
+      <Dependent Role="Deliveries">
+        <PropertyRef Name="IdSuppliers" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employeey_Post">
+    <End Role="Post" Type="Self.Post" Multiplicity="1" />
+    <End Role="Employeey" Type="Self.Employeey" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="IdPost" />
+      </Principal>
+      <Dependent Role="Employeey">
+        <PropertyRef Name="IdPost" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Employeey">
+    <End Role="Employeey" Type="Self.Employeey" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employeey">
+        <PropertyRef Name="IdEmp" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="IdEmp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Employeey2">
+    <End Role="Employeey" Type="Self.Employeey" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Employeey">
+        <PropertyRef Name="IdEmp" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="IdEmp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Product_Categories">
+    <End Role="Product_Categories" Type="Self.Product_Categories" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product_Categories">
+        <PropertyRef Name="IdCategories" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="IdCategories" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_TypeTovara">
+    <End Role="TypeTovara" Type="Self.TypeTovara" Multiplicity="1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeTovara">
+        <PropertyRef Name="IdTypeTovara" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="IdTypeTovara" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sborka_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Sborka" Type="Self.Sborka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="IdProduct" />
+      </Principal>
+      <Dependent Role="Sborka">
+        <PropertyRef Name="IdComputer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sborka_Products1">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Sborka" Type="Self.Sborka" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="IdProduct" />
+      </Principal>
+      <Dependent Role="Sborka">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Warehouses_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Warehouses" Type="Self.Warehouses" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="IdProduct" />
+      </Principal>
+      <Dependent Role="Warehouses">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ListOrders">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="CompBaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Clientele" EntityType="Self.Clientele" />
+    <EntitySet Name="Deliveries" EntityType="Self.Deliveries" />
+    <EntitySet Name="Employeey" EntityType="Self.Employeey" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" />
+    <EntitySet Name="Post" EntityType="Self.Post" />
+    <EntitySet Name="Product_Categories" EntityType="Self.Product_Categories" />
+    <EntitySet Name="Products" EntityType="Self.Products" />
+    <EntitySet Name="Sborka" EntityType="Self.Sborka" />
+    <EntitySet Name="Suppliers" EntityType="Self.Suppliers" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TypeTovara" EntityType="Self.TypeTovara" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <EntitySet Name="Warehouses" EntityType="Self.Warehouses" />
+    <AssociationSet Name="FK_Orders_Clientele" Association="Self.FK_Orders_Clientele">
+      <End Role="Clientele" EntitySet="Clientele" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Deliveries_Products1" Association="Self.FK_Deliveries_Products1">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Deliveries" EntitySet="Deliveries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Deliveries_Suppliers" Association="Self.FK_Deliveries_Suppliers">
+      <End Role="Suppliers" EntitySet="Suppliers" />
+      <End Role="Deliveries" EntitySet="Deliveries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employeey_Post" Association="Self.FK_Employeey_Post">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="Employeey" EntitySet="Employeey" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Employeey" Association="Self.FK_Orders_Employeey">
+      <End Role="Employeey" EntitySet="Employeey" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Employeey2" Association="Self.FK_Users_Employeey2">
+      <End Role="Employeey" EntitySet="Employeey" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Product_Categories" Association="Self.FK_Products_Product_Categories">
+      <End Role="Product_Categories" EntitySet="Product_Categories" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_TypeTovara" Association="Self.FK_Products_TypeTovara">
+      <End Role="TypeTovara" EntitySet="TypeTovara" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sborka_Products" Association="Self.FK_Sborka_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Sborka" EntitySet="Sborka" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sborka_Products1" Association="Self.FK_Sborka_Products1">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Sborka" EntitySet="Sborka" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Warehouses_Products" Association="Self.FK_Warehouses_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Warehouses" EntitySet="Warehouses" />
+    </AssociationSet>
+    <AssociationSet Name="ListOrders" Association="Self.ListOrders">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

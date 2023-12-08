@@ -1,0 +1,15 @@
+C:\Users\Eugene\source\repos\Practich3\Registration\bin\Debug\Registration.exe.config
+C:\Users\Eugene\source\repos\Practich3\Registration\bin\Debug\Registration.exe
+C:\Users\Eugene\source\repos\Practich3\Registration\bin\Debug\Registration.pdb
+C:\Users\Eugene\source\repos\Practich3\Registration\bin\Debug\HashPassword.dll
+C:\Users\Eugene\source\repos\Practich3\Registration\bin\Debug\HashPassword.pdb
+C:\Users\Eugene\source\repos\Practich3\Registration\obj\Debug\Registration.csproj.AssemblyReference.cache
+C:\Users\Eugene\source\repos\Practich3\Registration\obj\Debug\Registration.csproj.CoreCompileInputs.cache
+C:\Users\Eugene\source\repos\Practich3\Registration\obj\Debug\Registration.csproj.CopyComplete
+C:\Users\Eugene\source\repos\Practich3\Registration\obj\Debug\Registration.exe
+C:\Users\Eugene\source\repos\Practich3\Registration\obj\Debug\Registration.pdb
+C:\Users\Eugene\source\repos\Practich3\Registration\bin\Debug\EntityFramework.dll
+C:\Users\Eugene\source\repos\Practich3\Registration\bin\Debug\EntityFramework.xml
+C:\Users\Eugene\source\repos\Practich3\Registration\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\Eugene\source\repos\Practich3\Registration\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Eugene\source\repos\Practich3\Registration\bin\Debug\EntityFramework.SqlServer.xml
