@@ -9,7 +9,7 @@
       Title="TechnicalSpec">
 
     <Grid>
-        <Label Content="Технический специалист" HorizontalAlignment="Left" Margin="171,243,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblHiEmp" Content="Технический специалист" HorizontalAlignment="Left" Margin="171,243,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>

@@ -9,7 +9,7 @@
       Title="WarehouseWorker">
 
     <Grid>
-        <Label Content="Работник склада" HorizontalAlignment="Left" Margin="127,211,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblHiEmp" Content="Работник склада" HorizontalAlignment="Left" Margin="127,211,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>

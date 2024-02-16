@@ -9,7 +9,7 @@
       Title="Manager">
 
     <Grid>
-        <Label Content="Менеджер по продажам" HorizontalAlignment="Left" Margin="127,0,0,0" VerticalAlignment="Center"/>
+        <Label x:Name="lblHiEmp" Content="Менеджер по продажам" HorizontalAlignment="Left" Margin="127,0,0,0" VerticalAlignment="Center"/>
 
     </Grid>
 </Page>

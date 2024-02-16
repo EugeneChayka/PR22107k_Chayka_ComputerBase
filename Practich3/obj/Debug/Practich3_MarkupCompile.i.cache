@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Eugene\source\repos\Practich3\Practich3\App.xaml
-7986036027
+9-1914024155
 2-333757509
-29855145229
+31520438995
 20-292411107
-Views\Pages\Admin.xaml;Views\Pages\Autho.xaml;Views\Pages\Client.xaml;Views\Pages\Manager.xaml;Views\Pages\TechnicalSpec.xaml;Views\Pages\WarehouseWorker.xaml;Views\Windows\MainWindow.xaml;
+Views\Pages\Admin.xaml;Views\Pages\Autho.xaml;Views\Pages\Client.xaml;Views\Pages\Editing.xaml;Views\Pages\ForgotPassword.xaml;Views\Pages\Manager.xaml;Views\Pages\TechnicalSpec.xaml;Views\Pages\WarehouseWorker.xaml;Views\Windows\MainWindow.xaml;
 
-False
+True
 

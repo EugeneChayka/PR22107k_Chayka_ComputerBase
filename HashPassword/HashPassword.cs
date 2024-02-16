@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace HashPassword
-{
+{   //Класс для хеширования пароля
     public class hashPassword
-    {
+    { 
         public string HashingPassword(string password)
         {
             using (SHA256 sha256Hash = SHA256.Create())

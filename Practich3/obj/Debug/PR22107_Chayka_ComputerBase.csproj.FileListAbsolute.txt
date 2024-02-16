@@ -35,3 +35,7 @@ C:\Users\Eugene\source\repos\Practich3\Practich3\obj\Debug\PR22107_Chayka_Comput
 C:\Users\Eugene\source\repos\Practich3\Practich3\obj\Debug\PR22107_Chayka_ComputerBase.csproj.CopyComplete
 C:\Users\Eugene\source\repos\Practich3\Practich3\obj\Debug\Practich3.exe
 C:\Users\Eugene\source\repos\Practich3\Practich3\obj\Debug\Practich3.pdb
+C:\Users\Eugene\source\repos\Practich3\Practich3\obj\Debug\Views\Pages\Editing.g.cs
+C:\Users\Eugene\source\repos\Practich3\Practich3\obj\Debug\Views\Pages\Editing.baml
+C:\Users\Eugene\source\repos\Practich3\Practich3\obj\Debug\Views\Pages\ForgotPassword.g.cs
+C:\Users\Eugene\source\repos\Practich3\Practich3\obj\Debug\Views\Pages\ForgotPassword.baml

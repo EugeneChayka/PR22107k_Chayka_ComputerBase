@@ -9,25 +9,31 @@
       Title="Autho" Background="White">
 
     <Grid>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="260"/>
             <ColumnDefinition/>
             <ColumnDefinition Width="260"/>
+
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="Логин:"/>
             <TextBox x:Name="txtbLogin"/>
             <TextBlock Text="Пароль:"/>
             <PasswordBox x:Name="pswbPassword"/>
+            <TextBlock x:Name="txtBlockForgotPassword" TextWrapping="Wrap" Text="Забыли пароль?" HorizontalAlignment="Left" FontSize="10" Foreground="#FF001BFF" MouseLeftButtonDown="txtBlockForgotPassword_MouseLeftButtonDown" Height="17" Width="91" MouseLeave="txtBlockForgotPassword_MouseLeave" MouseEnter="txtBlockForgotPassword_MouseEnter" />
             <TextBlock x:Name="txtBlockCaptcha" Text="Каптча" Visibility="Hidden"/>
+            <TextBlock x:Name="txtBlockCod" Text="Код двухфакторной аутентификации" Visibility="Hidden"/>
+            <TextBox x:Name="tbCod" Visibility="Hidden" />
+            <TextBlock x:Name="txtBAnotherCod" TextWrapping="Wrap" Text="Отправить код повторно" HorizontalAlignment="Left" FontSize="10" Foreground="#FF4296D2" Visibility="Hidden" Height="17" Width="235" MouseLeftButtonDown="txtBAnotherCod_MouseLeftButtonDown" />
             <TextBox x:Name="txtboxCaptcha" Visibility="Hidden"/>
             <TextBlock HorizontalAlignment="Center" Visibility="Hidden" x:Name="txtBlockTimer" />
             <StackPanel Orientation="Horizontal" Height="80" HorizontalAlignment="Center">
                 <Button x:Name="btnEnterGuests" Margin="5,15,5,5" Content="Войти как гость" Click="btnEnterGuests_Click"/>
                 <Button x:Name="btnEnter" Margin="5,15,5,5" Content="Войти" Click="btnEnter_Click"/>
             </StackPanel>
-
         </StackPanel>
+
         <Label x:Name="lblTime" Grid.Column="1" Content="" HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top" Foreground="#FFEF0909"/>
 
     </Grid>

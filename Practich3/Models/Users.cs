@@ -11,10 +11,13 @@ namespace Practich3.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Users
     {
         public int IdEmp { get; set; }
+        [Required(ErrorMessage = "Поле Логин не должно быть пустым")]
+        [StringLength(100, MinimumLength = 1, ErrorMessage = "Поле Логин слишком длинное, должен быть в диапазоне {1}-{2}")]
         public string Login { get; set; }
         public string Password { get; set; }
     

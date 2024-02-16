@@ -23,6 +23,7 @@ namespace Practich3.Views.Pages
         public Client()
         {
             InitializeComponent();
+            
         }
     }
 }

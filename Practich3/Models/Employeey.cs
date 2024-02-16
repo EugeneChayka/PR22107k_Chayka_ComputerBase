@@ -11,7 +11,8 @@ namespace Practich3.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Employeey
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,13 +20,25 @@ namespace Practich3.Models
         {
             this.Orders = new HashSet<Orders>();
         }
-    
+
         public int IdEmp { get; set; }
+        
         public int IdPost { get; set; }
+
+        [Required(ErrorMessage = "Поле Имя не должно быть пустым")]
+        [StringLength(50, MinimumLength = 1, ErrorMessage = "Поле Имя слишком длинное")]
         public string Name { get; set; }
+        [Required(ErrorMessage = "Поле Фамилия не должно быть пустым")]
+        [StringLength(50, MinimumLength = 1, ErrorMessage = "Поле Фамилия слишком длинное")]
         public string Surname { get; set; }
         public string Patronymic { get; set; }
+        [Required(ErrorMessage = "Поле Номер Телефона не должно быть пустым")]
+        [StringLength(20, MinimumLength = 1, ErrorMessage = "Поле Номер Телефона слишком длинное")]
         public string PhoneNumber { get; set; }
+
+        [Required(ErrorMessage = "Поле E-mail не должно быть пустым")]
+        [StringLength(100, MinimumLength = 1, ErrorMessage = "Поле E-mail слишком длинное")]
+        
         public string Email { get; set; }
     
         public virtual Post Post { get; set; }
